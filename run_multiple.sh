@@ -6,12 +6,11 @@ mnt_list=(
 op_list=( "randwrite" "randread" ) 
 
 RESDIR="RESULTS"
-num_mnts=1
+num_mnts=5
 jobfile="./jobfile.fio"
 offset=0G
 filesize=2G
 size=5G
-rt=900s
 iod=16
 
 # include the FUNCTIONS
@@ -77,7 +76,7 @@ EOF2
       sync; echo 3 > /proc/sys/vm/drop_caches
 
       echo "+++++++++++++++++++++> ${DATETIME}"
-      echo "${mnt}: Starting FIO ${jobfile} OP=${op} RT=${rt} FS=${filesize}"
+      echo "${mnt}: Starting FIO ${jobfile} OP=${op} FS=${filesize} NUMNTS=${num_mnts}"
 #      cat "${jobfile}"
 
       fio --rw="${op}" "${jobfile}" &> "${fio_log}"
