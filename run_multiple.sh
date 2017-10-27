@@ -3,10 +3,10 @@
 mnt_list=( 
   "/mnt/writeback"
  ) 
-op_list=( "randwrite" "randread" ) 
+op_list=( "write" "randwrite" ) 
 
 RESDIR="RESULTS"
-num_mnts=5
+num_mnts=10
 jobfile="./jobfile.fio"
 offset=0G
 filesize=2G
