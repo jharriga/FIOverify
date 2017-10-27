@@ -2,7 +2,7 @@
 Runs FIO using the verification option.
 (based on githib "hdd_nvme_dmcache" repo)
 
-Creates twenty local XFS filesystems on dm-cache LVMs and uses FIO to
+Creates twenty 100GB local XFS filesystems on dm-cache LVMs and uses FIO to
 verify write operations on each of them.
 * dm-cache : cachemode=writethrough (default)
 * dm-cache : cachemode=writeback
@@ -24,8 +24,10 @@ After running 'setup_multiple.sh', the twenty mounted filesystems are named:
 * WBfastDEV_arr  <-- NVMe partitions to use as dm-cache writeback fast device
 
 # Edit 'run_multiple.sh' vars to configure run parameters
-* num_mnts       <-- how many active mountpts during FIO runs
-* filesize       <-- szie for each of the test files
+* mnt_list       <-- which mount points to test (e.g. /mnt/writeback)
+* op_list        <-- which FIO I/O operations to perform (randwrite, write)
+* num_mnts       <-- number of active mountpts to use in FIO runs (int. from 1 to 10)
+* filesize       <-- size for each of the test files (from 1G to 95G)
 
 # Workflow
 1) ./setup_multiple.sh
