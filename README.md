@@ -23,6 +23,10 @@ After running 'setup_multiple.sh', the twenty mounted filesystems are named:
 * WTfastDEV_arr  <-- NVMe partitions to use as dm-cache writethrough fast device
 * WBfastDEV_arr  <-- NVMe partitions to use as dm-cache writeback fast device
 
+# Edit 'run_multiple.sh' vars to configure run parameters
+* num_mnts       <-- how many active mountpts during FIO runs
+* filesize       <-- szie for each of the test files
+
 # Workflow
 1) ./setup_multiple.sh
 2) ./run_multiple.sh
